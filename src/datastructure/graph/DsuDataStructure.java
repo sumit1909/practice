@@ -3,6 +3,12 @@ package graph;
 public class DsuDataStructure {
     int[] parent;
     int[] rank;
+
+    public DsuDataStructure(int size){
+        this.parent=new int[size];
+        for (int i = 0; i < size; i++) parent[i] = i;
+        this.rank=new int[size];
+    }
     public int find(int x) {
         if (parent[x] != x) parent[x] = find(parent[x]);
         return parent[x];

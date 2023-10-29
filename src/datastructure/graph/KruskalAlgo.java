@@ -15,16 +15,14 @@ public class KruskalAlgo {
         }
         Collections.sort(edges, (a, b)->a.dist-b.dist);
         int size=edges.size()+1;
-        parent = new int[size];
-        for (int i = 0; i < size; i++) parent[i] = i;
-        rank = new int[size];
+        DsuDataStructure dsu=new DsuDataStructure(size);
         int mst=1;
         int cost=0;
         for(Edge e:edges){
             int d=e.dist;
             int u=e.u;
             int v=e.v;
-            if(union(u,v)){
+            if(dsu.union(u,v)){
                 cost+=d;
                 mst+=1;
                 if(mst==points.length)
@@ -33,27 +31,7 @@ public class KruskalAlgo {
         }
         return cost;
     }
-    int[] parent;
-    int[] rank;
-    public int find(int x) {
-        if (parent[x] != x) parent[x] = find(parent[x]);
-        return parent[x];
-    }
-
-    public boolean union(int x, int y) {
-        int xr = find(x), yr = find(y);
-        if (xr == yr) {
-            return false;
-        } else if (rank[xr] < rank[yr]) {
-            parent[xr] = yr;
-        } else if (rank[xr] > rank[yr]) {
-            parent[yr] = xr;
-        } else {
-            parent[yr] = xr;
-            rank[xr]++;
-        }
-        return true;
-    }
+    
 
     private int calManDist(int[] u, int[] v){
         return (int)(Math.abs(u[0]-v[0])+ Math.abs(u[1]-v[1]));
