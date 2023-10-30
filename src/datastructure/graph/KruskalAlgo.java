@@ -3,7 +3,9 @@ package graph;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
+/*
+ Sample problems https://leetcode.com/problems/min-cost-to-connect-all-points
+ */
 public class KruskalAlgo {
     public int minCostConnectPoints(int[][] points) {
         List<Edge> edges=new ArrayList<>();

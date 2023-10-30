@@ -3,6 +3,10 @@ package graph;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 
+/*
+ Sample problem:https://leetcode.com/problems/min-cost-to-connect-all-points
+ */
+
 public class PrimAlgorithm {
     public int minCostConnectPoints(int[][] points) {
         int n = points.length, ans = 0;
