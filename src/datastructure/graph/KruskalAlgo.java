@@ -31,7 +31,7 @@ public class KruskalAlgo {
         }
         return cost;
     }
-    
+
 
     private int calManDist(int[] u, int[] v){
         return (int)(Math.abs(u[0]-v[0])+ Math.abs(u[1]-v[1]));
